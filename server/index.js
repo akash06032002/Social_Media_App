@@ -17,7 +17,7 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
-import {path} from "path";
+
 
 
 // CONFIGURATIONS
@@ -57,9 +57,9 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 /*  STATIC FILES*/
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname, "./client/build/index.html"))
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
 })
 
 /* MONGOOSE SETUP */
